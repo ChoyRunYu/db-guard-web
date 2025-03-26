@@ -27,3 +27,18 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+### docker部署
+
+```sh
+docker pull registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard-web:1.0
+
+docekr run -it -d -p 8002:80 \
+-v 宿主机路径:/var/log/nginx \
+-v 宿主机路径:/etc/nginx/nginx.conf \
+--add-host db-guard-api:后端接口ip \
+--name db-guard-web \
+registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard-web:1.0
+
+```

@@ -35,10 +35,13 @@ npm run build
 docker pull registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard-web:1.0
 
 docekr run -it -d -p 8002:80 \
--v 宿主机路径:/var/log/nginx \
--v 宿主机路径:/etc/nginx/nginx.conf \
 --add-host db-guard-api:后端接口ip \
 --name db-guard-web \
 registry.cn-hangzhou.aliyuncs.com/choyrunyu/db-guard-web:1.0
+
+# 挂载日志
+-v 宿主机路径:/var/log/nginx 
+# 挂载配置文件
+-v 宿主机配置文件路径:/etc/nginx/nginx.conf 
 
 ```
